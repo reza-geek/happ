@@ -1,0 +1,207 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "assets/AdminTemplate/dist/css/adminlte.min.css";
+@import "assets/AdminTemplate/plugins/font-awesome/css/font-awesome.min.css";
+@import "assets/AdminTemplate/plugins/iCheck/flat/blue.css";
+@import "assets/AdminTemplate/plugins/morris/morris.css";
+@import "assets/AdminTemplate/plugins/jvectormap/jquery-jvectormap-1.2.2.css";
+@import "assets/AdminTemplate/plugins/datepicker/datepicker3.css";
+@import "assets/AdminTemplate/plugins/colorpicker/bootstrap-colorpicker.min.css";
+@import "assets/AdminTemplate/plugins/timepicker/bootstrap-timepicker.min.css";
+@import "assets/AdminTemplate/plugins/daterangepicker/daterangepicker-bs3.css";
+@import "assets/AdminTemplate/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css";
+@import "assets/AdminTemplate/dist/css/bootstrap-rtl.min.css";
+@import "assets/AdminTemplate/dist/css/custom-style.css";
+
+body .ui-widget {
+    font-family: "vazir" !important;
+    /* height: 100%!important; */
+    /* font-size: 16px!important; */
+  }
+  /*   
+  input.ng-invalid {
+    border-color: #dc3545;
+  }
+  
+  .pi-caret-right::before {
+    content: "\e904";
+  }
+  
+  .pi-step-backward::before {
+    content: "\e917";
+  }
+  
+  .pi-caret-left::before {
+    content: "\e905";
+  }
+  
+  .pi-step-forward::before {
+    content: "\e916";
+  }
+  
+  .tree-child-node {
+    padding-right: 2em !important;
+  }
+  
+  body .ui-table .ui-table-thead>tr>th {
+    color: inherit;
+    background-color: inherit;
+  }
+  
+  body .ui-table .ui-table-tbody>tr {
+    color: inherit;
+    background-color: inherit;
+  }
+  
+  body .ui-table .ui-table-tbody>tr:nth-child(even) {
+    color: inherit;
+    background-color: inherit;
+  }
+  
+.ui-paginator {
+    direction: ltr;
+  }
+  .ui-paginator-pages {
+    direction: rtl;
+  } */
+  
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  
+  /*fpb*/
+  .ui-dropdown-panel .ui-dropdown-item {
+    text-align: right !important;
+  }
+  
+  .modal-header .close,
+  .modal-header .mailbox-attachment-close {
+    margin: -1rem auto -1rem -1rem !important;
+  }
+  
+  .ui-dialog .ui-dialog-titlebar-icons {
+    float: left !important;
+  }
+  
+  body .ui-dropdown.ui-dropdown-clearable .ui-dropdown-label {
+    padding-left: 4em;
+    padding-right: 0.5em;
+  }
+  
+  .ui-dropdown .ui-dropdown-trigger {
+    left: 0;
+    right: unset;
+  }
+  
+  .ui-dropdown .ui-dropdown-clear-icon {
+    left: 2em;
+    right: unset;
+  }
+  
+  body .ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter-icon {
+    left: 1.357em;
+    right: unset;
+  }
+  
+  body .ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter {
+    padding-left: 2em;
+    padding-right: 1.5em;
+  }
+  
+  .greenPage,
+  .greenPage fieldset {
+    background-color: rgb(206, 236, 146);
+  }
+  
+  .yellowPage,
+  .yellowPage fieldset {
+    background-color: rgb(241, 225, 151);
+  }
+  
+  .redPage,
+  .redPage fieldset {
+    background-color: rgb(233, 161, 161);
+  }
+  
+  body .ui-multiselect-panel .ui-multiselect-header .ui-multiselect-close {
+    color: #848484;
+    top: 50%;
+    margin-top: -0.5em;
+    line-height: 1;
+    transition: color 0.2s, background-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .ui-multiselect-header .ui-multiselect-close {
+    left: .375em;
+    right: unset;
+  }
+  
+  body .ui-multiselect-panel .ui-multiselect-header .ui-chkbox {
+    margin-left: 1.2em;
+    margin-top: 0.6em;
+  }
+  
+  body .ui-multiselect-panel .ui-multiselect-header .ui-multiselect-filter-container {
+    float: right;
+  }
+  
+  .ui-multiselect .ui-multiselect-trigger {
+    left: 0;
+    right: unset;
+  }
+  
+  body .ui-multiselect .ui-multiselect-label {
+    padding-left: 2em;
+    padding-right: 0.5em;
+  }
+  
+  body .ui-multiselect-panel .ui-multiselect-header .ui-multiselect-filter-container .ui-inputtext {
+    padding-right: 0.5em;
+    padding-left: 2em;
+  }
+  
+  body .ui-multiselect-panel .ui-multiselect-header .ui-multiselect-filter-container .ui-multiselect-filter-icon {
+    left: 0.5em;
+    right: auto;
+  }
+  
+  /* @media (max-width: 992px) {
+    .ui-table-wrapper{
+      overflow: auto;
+    }
+    .ui-table table {
+      width: max-content;
+    }
+  
+    .row{
+      overflow: hidden;
+    }
+  }  */
+/*   
+  .scrollTable table {
+    table-layout: inherit !important;
+  }
+  
+  .overflow-auto {
+    overflow: auto !important;
+  }
+  
+  .scrollTable table td {
+    width: 1px;
+    white-space: nowrap;
+  }
+  
+  .eyes {
+    float: left;
+    position: relative;
+    top: -25px;
+    margin-left: 10px;
+  } */

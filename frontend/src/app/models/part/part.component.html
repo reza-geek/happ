@@ -1,0 +1,30 @@
+<h3>لیست بیماران</h3>
+ 
+
+<table class='table table-sm table-striped' aria-labelledby="tableLabel" >
+  <thead>
+    <tr>
+      <th>کد بخش</th>
+      <th>نام بخش</th>
+      <th>توضیحات</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of part">
+      <td>{{ item?.part_ID }}</td>
+      <td>{{ item?.part_Name }}</td>
+      <td>{{ item?.comment }}</td>
+      <td>
+         <a class="btn btn-primary" [routerLink]="['/part-detail/', item.part_ID]" >Details
+          <!-- <i class="fa fa-pencil"></i>  -->
+        </a> 
+         <!-- <button class="btn btn-primary bt-sm" click="selectPart(part.Part_ID)"> Details</button> -->
+       
+      </td>
+    </tr>
+  </tbody>
+</table> 
+
+<!-- <h1>{{ v_part.part_ID  }}</h1>
+{{ v_part.part_Name }}
+<h2>{{ v_part.comment }}</h2> -->
