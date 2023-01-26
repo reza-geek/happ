@@ -2,23 +2,28 @@
   "name": "frontend",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
+    "ng": "nx",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "postinstall": "node ./decorate-angular-cli.js"
   },
   "private": true,
   "dependencies": {
+    "@angular-persian/material-date-picker": "^1.8.1",
     "@angular/animations": "^14.2.0",
+    "@angular/cdk": "~13.3.9",
     "@angular/common": "^14.2.0",
     "@angular/compiler": "^14.2.0",
     "@angular/core": "^14.2.0",
     "@angular/forms": "^14.2.0",
+    "@angular/material": "~13.3.9",
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
-    "@nrwl/angular": "15.2.1",
+    "@nrwl/angular": "15.1.1",
+    "angular-material": "github:angular/bower-material#master",
     "bootstrap": "^5.2.2",
     "jalali-moment": "^3.3.11",
     "rxjs": "~7.5.0",
@@ -31,7 +36,7 @@
     "@angular/cli": "~14.2.8",
     "@angular/compiler-cli": "^14.2.0",
     "@nrwl/nx-cloud": "15.0.0",
-    "@nrwl/workspace": "15.2.1",
+    "@nrwl/workspace": "15.1.1",
     "@types/jasmine": "~4.0.0",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
@@ -39,7 +44,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "nx": "15.2.1",
+    "nx": "15.1.1",
     "typescript": "~4.7.2"
   }
 }

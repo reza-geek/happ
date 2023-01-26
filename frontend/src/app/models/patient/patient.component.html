@@ -1,0 +1,41 @@
+
+<h3>لیست بیماران</h3>
+<!-- Patient_ID  ? : number ;
+FName  ? : string ;
+LName  ? : string ;
+Birthdate  ? : string ;
+National_Code  ? : string ;
+Phone  ? : string ;
+Mobile  ? : string ;
+Gender  ? : string ;
+Insert_Date  ? : string ;
+User_ID ? : number ; -->
+
+<table class='table table-sm table-striped' aria-labelledby="tableLabel" >
+  <thead>
+    <tr>
+      <th>کد</th>
+      <th>نام</th>
+      <th>نام خانوادگی</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of o_patient">
+      <td>{{ item?.Patient_ID }}</td>
+      <td>{{ item?.FName }}</td>
+      <td>{{ item?.LName }}</td>
+      <td>
+         <a class="btn btn-primary" [routerLink]="['/part-detail/', item.Patient_ID]" >Details
+          <!-- <i class="fa fa-pencil"></i>  -->
+        </a> 
+         <!-- <button class="btn btn-primary bt-sm" click="selectPart(part.Part_ID)"> Details</button> -->
+       
+      </td>
+      <td>
+        <a class="btn btn-primary" [routerLink]="['/part-detail', item.Patient_ID]" >Delete
+        </a> 
+       
+     </td>
+    </tr>
+  </tbody>
+</table> 

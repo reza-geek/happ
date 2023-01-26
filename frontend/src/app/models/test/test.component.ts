@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router  } from '@angular/router';
 import { Exception } from 'sass';
+import {MatDatepicker} from '@angular/material/datepicker';
+//import {MatDatepickerModulePersian} from '@angular-persian/material-date-picker';
 
 @Component({
   selector: 'app-test',
@@ -82,6 +84,18 @@ export class TestComponent implements OnInit {
         console.log(error.message);
       }
     );
+   }
+
+   delete (part : Part){
+    debugger;
+    this.http.delete('/api/Part/DeletePart/' +part.part_ID ).subscribe(
+      (data)=>{
+        alert("Deleted");
+        console.log(data);
+      },
+      (error:Exception)=>{
+        console.log(error.message);
+      });
    }
   
 }

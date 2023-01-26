@@ -6,6 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 var connectionString1 = builder.Configuration.GetConnectionString("myDb1");
 builder.Services.AddDbContext<Hospital_DBN2>(x => x.UseSqlServer(connectionString1));
+builder.Services.AddMvc().AddJsonOptions(options =>
+{
+   options.JsonSerializerOptions.PropertyNamingPolicy = null;
+});;
 
 var app = builder.Build();
 

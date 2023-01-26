@@ -11,16 +11,21 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of part">
-      <td>{{ item?.part_ID }}</td>
-      <td>{{ item?.part_Name }}</td>
-      <td>{{ item?.comment }}</td>
+      <td>{{ item?.Part_ID }}</td>
+      <td>{{ item?.Part_Name }}</td>
+      <td>{{ item?.Comment }}</td>
       <td>
-         <a class="btn btn-primary" [routerLink]="['/part-detail/', item.part_ID]" >Details
+         <a class="btn btn-primary" [routerLink]="['/part-detail/', item.Part_ID]" >Details
           <!-- <i class="fa fa-pencil"></i>  -->
         </a> 
          <!-- <button class="btn btn-primary bt-sm" click="selectPart(part.Part_ID)"> Details</button> -->
        
       </td>
+      <td>
+        <a class="btn btn-primary" [routerLink]="['/part-detail', item.Part_ID]" >Delete
+        </a> 
+       
+     </td>
     </tr>
   </tbody>
 </table> 

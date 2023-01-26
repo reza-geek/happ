@@ -261,7 +261,6 @@ namespace backend.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Insert_Date")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LName")
@@ -277,18 +276,15 @@ namespace backend.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("User_ID")
+                    b.Property<int>("User_ID")
                         .HasColumnType("int");
 
                     b.HasKey("Patient_ID");
 
                     b.HasIndex("National_Code")
                         .IsUnique();
-
-                    b.HasIndex("User_ID");
 
                     b.ToTable("Patient");
                 });
@@ -438,15 +434,6 @@ namespace backend.Migrations
                 });
 
             modelBuilder.Entity("backend.Models.Doctor", b =>
-                {
-                    b.HasOne("backend.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("User_ID");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("backend.Models.Patient", b =>
                 {
                     b.HasOne("backend.Models.User", "User")
                         .WithMany()

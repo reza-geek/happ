@@ -1833,11 +1833,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Work\\happ\\backend\\backend.csproj",
+      "projectUniqueName": "D:\\Work\\happ\\happ\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "D:\\Work\\happ\\backend\\backend.csproj",
+      "projectPath": "D:\\Work\\happ\\happ\\backend\\backend.csproj",
       "packagesPath": "C:\\Users\\geek-pc\\.nuget\\packages\\",
-      "outputPath": "D:\\Work\\happ\\backend\\obj\\",
+      "outputPath": "D:\\Work\\happ\\happ\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\geek-pc\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -10,8 +10,7 @@
           <!-- <div class="col-sm-4">
               <label for="exampleInputEmail1">کد بخش</label>
               <input type="email" class="form-control"  placeholder="نام را وارد کنید">
-          </div> -->
-          
+          </div> -->          
 
           <div class="col-sm-4">
               <label for="txtPartName">نام بخش</label>
@@ -22,7 +21,15 @@
               <label for="txtComment">توضیحات</label>
               <input id="txtComment" type="text" class="form-control" name="comment"  [(ngModel)] = "v_part.comment" placeholder="توضیحات را وارد کنید">
           </div>
-          
+          <div class="col-sm-4">
+              <label for="txtComment">تاریخ</label>
+ <!--             <md-datepicker type="wide" #picker (selectedChanged)="setDateReturn($event);"></md-datepicker>
+ <mat-form-field>
+  <input required matInput (mouseup)="dpickerFocus(picker)" [(ngModel)]="today" (focus)="dpickerFocus(picker)" readonly
+         [matDatepicker]="picker" placeholder="تاریخ">
+
+</mat-form-field> -->
+          </div>
           <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
             <fieldset class="form-group">
                 <br />
@@ -33,6 +40,12 @@
             <fieldset class="form-group">
                 <br />
                 <button type="button" (click)="create(v_part)" class="btn btn-success">ایجاد بخش</button>
+            </fieldset>
+        </div> 
+        <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+            <fieldset class="form-group">
+                <br />
+                <button type="button" (click)="delete(v_part )" class="btn btn-primary">حذف بخش</button>
             </fieldset>
         </div> 
          

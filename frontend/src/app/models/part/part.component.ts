@@ -7,9 +7,9 @@ import { RouterModule } from '@angular/router';
 
 
 interface Part {
-  part_Name: string;
-  part_ID: number;
-  comment: string;
+  Part_Name: string;
+  Part_ID: number;
+  Comment: string;
 }
 
 @Component({

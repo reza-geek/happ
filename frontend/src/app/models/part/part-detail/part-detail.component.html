@@ -1,0 +1,68 @@
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">اطلاعات بخش</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form role="form" class="form-horizontal">
+        <div class="card-body">
+             
+            <!-- <div class="col-sm-4">
+                <label for="exampleInputEmail1">کد بخش</label>
+                <input type="email" class="form-control"  placeholder="نام را وارد کنید">
+            </div> -->          
+  
+            <div class="col-sm-4">
+                <label for="txtPartName">نام بخش</label>
+                <input  class="form-control" type="text" name="part_Name" [(ngModel)] = "v_part.Part_Name"  required placeholder="نام بخش را وارد کنید" />             
+            </div>         
+            <!--  -->
+            <div class="col-sm-4">
+                <label for="txtComment">توضیحات</label>
+                <input id="txtComment" type="text" class="form-control" name="comment"  [(ngModel)] = "v_part.Comment" placeholder="توضیحات را وارد کنید">
+            </div>
+            <div class="col-sm-4">
+                <label for="txtComment">تاریخ</label>
+                <!-- <md-datepicker type="wide" #picker (selectedChanged)="setDateReturn($event);"></md-datepicker>
+  <mat-form-field>
+    <input required matInput (mouseup)="dpickerFocus(picker)" [(ngModel)]="today" (focus)="dpickerFocus(picker)" readonly
+           [matDatepicker]="picker" placeholder="تاریخ">
+  
+  </mat-form-field> -->
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+              <fieldset class="form-group">
+                  <br />
+                  <button style="display:inline" type="button" (click)="update(v_part)" class="btn btn-primary">ویرایش</button> 
+              </fieldset>
+          </div>  
+          <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+              <fieldset class="form-group">
+                  <br />
+                  <button type="button" (click)="create(v_part)" class="btn btn-success">ایجاد بخش</button>
+              </fieldset>
+          </div> 
+          <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+              <fieldset class="form-group">
+                  <br />
+                  <button type="button" (click)="delete(v_part )" class="btn btn-primary">حذف بخش</button>
+              </fieldset>
+          </div> 
+           
+  
+        </div>
+        <!-- /.card-body -->
+  
+        <!-- <div class="card-footer">
+            <button type="submit" onclick="CreatePatient()" class="btn btn-primary">ثبت</button>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+            <fieldset class="form-group">
+                <br />
+                <a onclick="Registeruser()" class="btn btn-success col-md-12">تکمیل ثبت نام </a>
+            </fieldset>
+        </div> -->
+    </form>
+  </div>
+  <h1>{{ v_part.Part_ID }}</h1>
+   

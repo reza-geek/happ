@@ -70,13 +70,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="~/Admin/patient/index" class="nav-link">
+                  <a [routerLink]="['/patient']" class="nav-link">
                     <i class="fa fa-users nav-icon"></i>
                     <p>مدیریت بیماران</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="~/Admin/patient/Create" class="nav-link">
+                  <a [routerLink]="['/patient']"  class="nav-link">
                     <i class="fa fa-user-plus nav-icon"></i>
                     <p>تعریف بیمار</p>
                   </a>
@@ -94,13 +94,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a [routerLink]="['/doctor']"  class="nav-link">
                     <i class="fa fa-user-md nav-icon"></i>
                     <p>مدیریت پزشکان</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/charts/flot.html" class="nav-link">
+                  <a [routerLink]="['/doctor']" class="nav-link">
                     <i class="fa fa-user-circle-o nav-icon"></i>
                     <p>تعریف پزشک</p>
                   </a>
@@ -109,7 +109,7 @@
             </li>
             <!-- @*پذیرش*@ -->
             <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
+              <a [routerLink]="['/reception']" class="nav-link">
                 <i class="nav-icon fa fa-bed"></i>
                 <p>
                  پذیرش                 
@@ -118,7 +118,7 @@
             </li>
             <!-- ترخیص-->
             <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
+              <a [routerLink]="['/clear']" class="nav-link">
                 <i class="nav-icon fa fa-heartbeat"></i>
                 <p>
                  ترخیص                  
@@ -127,7 +127,7 @@
             </li>
             <!-- تعبیه-->
             <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
+              <a [routerLink]="['/catheterisation']" class="nav-link">
                 <i class="nav-icon fa fa-medkit"></i>
                 <p>
                  تعبیه                  
@@ -146,27 +146,34 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/UI/general.html" class="nav-link">
+                  <a [routerLink]="['/part']" class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
                     <p>بخش</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/UI/icons.html" class="nav-link">
+                  <a [routerLink]="['/event']" class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
                     <p>عارضه</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/UI/buttons.html" class="nav-link">
-                    <i class="fa fa-circle-o nav-icon"></i>
-                    <p>عارضه</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/UI/sliders.html" class="nav-link">
+                  <a [routerLink]="['/catheter']" class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
                     <p>کاتتر</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['/cathetereject']" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>علت خروج کاتتر</p>
+                  </a>
+                </li>
+                
+                <li class="nav-item">
+                  <a [routerLink]="['/clearance']" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>علت ترخیص</p>
                   </a>
                 </li>
               </ul>
