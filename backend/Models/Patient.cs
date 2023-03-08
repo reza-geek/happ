@@ -22,8 +22,11 @@
         public string Mobile { get; set; }
         public string Gender { get; set; }
         public string ? Insert_Date { get; set; }
+
+        [ForeignKey("User")]
         public int  User_ID { get; set; }
-       // public   User { get; set; }
+        public User ? User { get; set; }
+
         //public ICollection<Reception> Reception { get; set; }
     }
 }

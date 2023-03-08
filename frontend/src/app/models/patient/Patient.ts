@@ -1,3 +1,4 @@
+import { User } from "../user/User";
 export class Patient
     {       
         Patient_ID  ? : number ;
@@ -10,4 +11,6 @@ export class Patient
         Gender  ? : string ;
         Insert_Date  ? : string ;
         User_ID ? : number ;
+        User ? : User ;
     }
+     

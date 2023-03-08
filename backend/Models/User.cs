@@ -18,7 +18,9 @@
         public string Username { get; set; }
         [Required(ErrorMessage = "Required!")]
         public string Password { get; set; }
+        [Required(ErrorMessage = "Required!")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Required!")]
         public string Family { get; set; }
         public string National_Code { get; set; }
         public string Mobile { get; set; }
@@ -29,6 +31,7 @@
         public Nullable<int> LoginFailedCount { get; set; }
         public string LastLoginDate { get; set; }
 
+       // public List<Patient> Patients { get; set; }
         //public ICollection<Patient> Patient { get; set; }
         //public ICollection<Doctor> Doctor { get; set; }
     }

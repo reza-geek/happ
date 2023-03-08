@@ -25,16 +25,32 @@ export class PartComponent {
 
   constructor(private http: HttpClient,private router: RouterModule) {
 
-    this.http.get<Part[]>("/api/Part/GetPart").
-    subscribe(x => { this.part = x; }, error => console.error(error) );
+    this.GetPart();
     //returns list by ID
     // this.http.get<any>('/api/Part/GetPartById/4').subscribe(    x => {  this.part = x ; } ,error => console.error(error)  );
 
+  }
+
+  GetPart()
+  {
+    this.http.get<Part[]>("/api/Part/GetPart").
+    subscribe(x => { this.part = x; }, error => console.error(error) );
   }
 
   selectPart(id: number) {
     this.http.get<Part>('/api/Part/GetPartById2/'+ id).subscribe(v => { this.v_part = v; });    
   }
 
-  
+  delete (id : number){
+    debugger;
+    this.http.delete('/api/Part/DeletePart/' + id ).subscribe(
+      (data)=>{
+        alert("Deleted");
+        console.log(data);
+        this.GetPart();
+      },
+      (error)=>{
+        console.log(error.message);
+      });
+   }
 }

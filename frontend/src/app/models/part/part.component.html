@@ -1,5 +1,13 @@
-<h3>لیست بیماران</h3>
- 
+<div class="card-footer clearfix">
+  <a class="btn btn-info float-right" [routerLink]="['/part-detail']" > 
+    جدید
+    <i class="fa fa-plus"></i>
+    </a>
+  <!-- <button type="button" class="btn btn-info float-right"><i class="fa fa-plus"></i> </button> -->
+</div>
+
+<h3>لیست بخش ها</h3>
+
 
 <table class='table table-sm table-striped' aria-labelledby="tableLabel" >
   <thead>
@@ -7,6 +15,8 @@
       <th>کد بخش</th>
       <th>نام بخش</th>
       <th>توضیحات</th>
+      <th>عملیات</th>
+     
     </tr>
   </thead>
   <tbody>
@@ -14,18 +24,20 @@
       <td>{{ item?.Part_ID }}</td>
       <td>{{ item?.Part_Name }}</td>
       <td>{{ item?.Comment }}</td>
-      <td>
-         <a class="btn btn-primary" [routerLink]="['/part-detail/', item.Part_ID]" >Details
-          <!-- <i class="fa fa-pencil"></i>  -->
-        </a> 
-         <!-- <button class="btn btn-primary bt-sm" click="selectPart(part.Part_ID)"> Details</button> -->
+      <td> 
+          
+          <a class="btn btn-primary" [routerLink]="['/part-detail/', item.Part_ID]" > 
+           <i class="fa fa-edit"></i>
+           </a>
+             &nbsp; 
+                  
+            <button class="btn btn-danger bt-sm" (click)="delete(item.Part_ID)">
+              <i class="fa fa-trash-o"></i>
+            </button>
+          <!-- <button class="btn btn-primary bt-sm" click="selectPart(part.Part_ID)"> Details</button> -->       
        
-      </td>
-      <td>
-        <a class="btn btn-primary" [routerLink]="['/part-detail', item.Part_ID]" >Delete
-        </a> 
-       
-     </td>
+      </td>  
+    
     </tr>
   </tbody>
 </table> 

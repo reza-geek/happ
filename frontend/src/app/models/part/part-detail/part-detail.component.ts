@@ -25,6 +25,7 @@ export class PartDetailComponent implements OnInit {
   parts :Part[] = [];
   public error: any;
   id!: number;
+  op_edit!: boolean;
 
   constructor(private http: HttpClient, private actRoute: ActivatedRoute, private router: Router) { }
   // this.id = this.actRoute.snapshot.params['id'];
@@ -38,18 +39,36 @@ export class PartDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.actRoute.paramMap.subscribe((param) => {
+      debugger
       var id = Number(param.get('id'));
       if(id!=0)
-      this.getById(id);
-      this.v_part=new Part();
+      {
+        this.getById(id);
+        this.v_part=new Part();
+        this.op_edit = true;
+      }
+      
     });
+  } 
+  gotoList() {
+    debugger;
+    this.router.navigate(['/Part']);
   }
   getById(id: number) {
     this.http.get<Part>('/api/Part/GetPartById2/' + id).subscribe(data => { this.v_part = data; });
     debugger;
     ;
   }
-  createNew() {
+  createOrReplace(part: Part) {
+    debugger
+    if(this.op_edit)
+    {
+      this.update(part);
+    }
+    else
+    {
+      this.create(part);
+    }
     // let p = new Part {part_Name = 'test',comment = 'test'};
     // this.new_part.part_Name = 'test';
     //  this.new_part.comment = 'test';
@@ -59,12 +78,13 @@ export class PartDetailComponent implements OnInit {
   }
 
   create(part: Part) {
-    debugger
+    
     this.http.post<Part>('/api/Part/CreatePart', part).subscribe(
       (data)=>{
         alert("Part Created Successfully!");
         console.log(data);
         this.v_part=new Part();
+        this.gotoList();
       },
       (error:Exception)=>{
         console.log(error.message);
@@ -76,7 +96,7 @@ export class PartDetailComponent implements OnInit {
     debugger;
     this.http.post('/api/Part/UpdatePart', part).subscribe(
       (data)=>{
-        alert("bbbbb");
+        alert("Update Done");
         console.log(data);
       },
       (error:Exception)=>{

@@ -1,0 +1,85 @@
+<p>patient-detail works!</p>
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">اطلاعات بیمار</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form role="form" class="form-horizontal" >
+        <div class="card-body">
+             
+            <!-- <div class="col-sm-4">
+                <label for="exampleInputEmail1">کد بخش</label>
+                <input type="email" class="form-control"  placeholder="نام را وارد کنید">
+                    {       
+        Patient_ID  ? : number ;
+        FName  ? : string ;
+        LName  ? : string ;
+        Birthdate  ? : string ;
+        National_Code  ? : string ;
+        Phone  ? : string ;
+        Mobile  ? : string ;
+        Gender  ? : string ;
+        Insert_Date  ? : string ;
+        User_ID ? : number ;
+    }
+            </div> -->          
+  
+            <div class="col-sm-4">
+                <label for="txtPartName">نام</label>
+                <input  class="form-control" type="text" name="FName" [(ngModel)] = "v_patient!.FName"  
+                required placeholder="نام را وارد کنید" />             
+            </div>         
+            <!--  -->
+            <div class="col-sm-4">
+                <label for="txtComment">نام خانوادگی</label>
+                <input id="txtComment" type="text" class="form-control" name="LName"  [(ngModel)] = "v_patient!.LName" placeholder="نام خانوادگی را وارد کنید">
+            </div>
+            <!-- <input id="txtComment" type="text" class="form-control" name="Birthdate" 
+                      [(ngModel)] = "v_patient.Birthdate" placeholder="تاریخ تولد را وارد کنید"> -->
+             <div class="col-sm-4">
+                <label for="txtComment">تاریخ تولد</label>
+                
+                <ng-persian-datepicker >
+                    <input type="text"  id="txtComment"   
+                    [(ngModel)] = "v_patient!.Birthdate"
+                    placeholder="تاریخ تولد را وارد کنید" 
+                    class="form-control"
+                    [formControl]="dateValue"                                        
+                     
+                     />
+                  </ng-persian-datepicker>
+            </div>  
+ 
+           
+            
+            <div class="col-sm-4">
+                <label for="txtComment">شماره پرونده
+                </label>
+                <input id="txtComment" type="text" class="form-control" name="National_Code"   [(ngModel)] = "v_patient.National_Code" placeholder="شماره پرونده را وارد کنید">
+            </div>
+
+            
+            <div class="col-xl-12 col-lg-12 col-md-12 mb-1" style="float:right">
+               
+                  <br />
+                  <button style="display:inline" type="button" (click)="createOrReplace(v_patient)" class="btn btn-primary">ثبت</button> 
+           &nbsp;  <button type="button" (click)=" gotoList() " *ngIf="op_edit" class="btn btn-success">برگشت</button>
+           &nbsp;
+            <!-- <button type="button" (click)="delete(v_patient )" class="btn btn-danger">حذف</button> -->
+          </div>  
+
+        </div>
+        <!-- /.card-body -->
+  
+        
+    </form>
+    <!-- <ng-persian-datepicker >
+        <input type="text"  id="txtComment" 
+        placeholder="تاریخ تولد را وارد کنید" class="form-control"
+        [formControl]="dateValue"                                        
+         
+         />
+      </ng-persian-datepicker> -->
+  </div> 
+   

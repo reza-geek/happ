@@ -286,6 +286,8 @@ namespace backend.Migrations
                     b.HasIndex("National_Code")
                         .IsUnique();
 
+                    b.HasIndex("User_ID");
+
                     b.ToTable("Patient");
                 });
 
@@ -438,6 +440,17 @@ namespace backend.Migrations
                     b.HasOne("backend.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("User_ID");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("backend.Models.Patient", b =>
+                {
+                    b.HasOne("backend.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("User_ID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
