@@ -51,9 +51,7 @@ export class HomeComponent implements OnInit {
   }
 
   tval=true;
-  constructor() {
-    
-   }
+  constructor() {   }
 
   ngOnInit(): void {
   }

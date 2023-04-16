@@ -11,7 +11,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:browser",          
           "options": {
             "outputPath": "dist/frontend",
             "index": "src/index.html",
@@ -92,7 +92,6 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-           
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
@@ -132,8 +131,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": false
   }
 }

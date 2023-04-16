@@ -1,37 +1,9 @@
-
-
-<p>home works!</p>
-
-<!-- Toolbar -->
  
+<app-navbar></app-navbar>
+<app-side-bar></app-side-bar>
+<app-main-content>
+   
+</app-main-content>
 
-    <div class="datepicker-wrapper">
-       
-
-        <div class="col-sm-4">
-            <label for="txtComment">تاریخ تولد</label>
-            <ng-persian-datepicker (dateOnSelect)="onSelect($event)"
-            [dateFormat]="'YYYY/MM/DD HH:mm:ss'"
-            [dateGregorianFormat]="'YYYY-MM-DD HH:mm:ss'"
-            [(uiIsVisible)]="uiIsVisible"
-            [uiTheme]="uiTheme"
-            [uiYearView]="uiYearView"
-            [uiMonthView]="uiMonthView"
-            [uiHideAfterSelectDate]="uiHideAfterSelectDate"
-            [uiHideOnOutsideClick]="uiHideOnOutsideClick"
-            [uiTodayBtnEnable]="uiTodayBtnEnable"
-            [timeEnable]="timeEnable"
-            [timeShowSecond]="timeShowSecond"
-            [timeMeridian]="timeMeridian">
-<div class="input-field">
-<input type="text" [formControl]="dateValue" aria-label="Datepicker Input" 
-placeholder="تاریخ تولد را وارد کنید" class="form-control"/>
-</div>
-</ng-persian-datepicker>
-             
-        </div>
-        <!-- <mat-form-field>
-        <input matInput [matDatepicker]="picker6" placeholder="json gregorian input" [(ngModel)]="dateControl">
-        <mat-datepicker-toggle matSuffix [for]="picker6"></mat-datepicker-toggle>
-        <mat-datepicker #picker6></mat-datepicker>
-    </mat-form-field> -->
+ 
+Home

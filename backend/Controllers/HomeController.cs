@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backend.Controllers;
 
@@ -10,6 +11,7 @@ public class Model{
 
 
 [Route("/api/Home")]
+[Authorize]
 public class HomeController : Controller
 {
     private Hospital_DBN2 context;

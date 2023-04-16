@@ -30,14 +30,15 @@ User_ID ? : number ; -->
       <td>{{ item.User?.Family }}</td>
       <td>{{ item.User?.Name}}</td>
       <td>
-         <a class="btn btn-primary" [routerLink]="['/patient-detail/', item.Patient_ID]" >Details
+         <a class="btn btn-primary" [routerLink]="['../patient-detail/', item.Patient_ID]"
+         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Details
           <!-- <i class="fa fa-pencil"></i>  -->
         </a> 
          <!-- <button class="btn btn-primary bt-sm" click="selectPart(part.Part_ID)"> Details</button> -->
        
       </td>
       <td>
-        <a class="btn btn-primary" [routerLink]="['/patient-detail/', item.Patient_ID]" >Delete
+        <a class="btn btn-primary" [routerLink]="['../patient-detail/', item.Patient_ID]" >Delete
         </a> 
      </td>
     </tr>
