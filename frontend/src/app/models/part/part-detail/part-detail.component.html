@@ -4,38 +4,64 @@
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <form role="form" class="form-horizontal">
-        <div class="card-body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" role="form" class="form-horizontal">
+        <div  class="card-body">
              
             <!-- <div class="col-sm-4">
                 <label for="exampleInputEmail1">کد بخش</label>
                 <input type="email" class="form-control"  placeholder="نام را وارد کنید">
             </div> -->          
-  
+          <div class="form-group">
             <div class="col-sm-4">
                 <label for="txtPartName">نام بخش</label>
-                <input  class="form-control" type="text" name="part_Name" [(ngModel)] = "v_part.Part_Name"  required placeholder="نام بخش را وارد کنید" />             
+                <input  
+                type="text"
+                formControlName="part_Name"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['part_Name'].errors }"
+                [(ngModel)] = "v_part.Part_Name"    
+                placeholder="نام بخش را وارد کنید"
+                /> 
+                <div *ngIf="submitted && f['part_Name'].errors" class="invalid-feedback">
+                    <div *ngIf="f['part_Name'].errors['required']">Part_Name is required</div>
+                </div>            
             </div>         
+            
+          </div>
+         <div class="form-group">
             <!--  -->
             <div class="col-sm-4">
                 <label for="txtComment">توضیحات</label>
-                <input id="txtComment" type="text" class="form-control" name="comment"  [(ngModel)] = "v_part.Comment" placeholder="توضیحات را وارد کنید">
+                <input id="txtComment" 
+                formControlName="comment"
+                type="text" 
+                class="form-control" 
+                name="comment" 
+                [ngClass]="{ 'is-invalid': submitted && f['comment'].errors }" 
+                [(ngModel)] = "v_part.Comment" 
+                placeholder="توضیحات را وارد کنید">
+
+                <div *ngIf="submitted && f['comment'].errors" class="invalid-feedback">
+                    <div *ngIf="f['comment'].errors['required']">comment is required</div>
+                    <div *ngIf="f['comment'].errors['minlength']">
+                        comment must be at least 6 characters
+                      </div>
+                </div>
             </div>
+        </div>
             <div class="col-sm-4">
-              <!--  <label for="txtComment">تاریخ</label>
-                 <md-datepicker type="wide" #picker (selectedChanged)="setDateReturn($event);"></md-datepicker>
-  <mat-form-field>
-    <input required matInput (mouseup)="dpickerFocus(picker)" [(ngModel)]="today" (focus)="dpickerFocus(picker)" readonly
-           [matDatepicker]="picker" placeholder="تاریخ">
-  
-  </mat-form-field> -->
+             
             </div>
             <div class="col-xl-12 col-lg-12 col-md-12 mb-1" style="float:right">
                
                   <br />
-                  <button style="display:inline" type="button" (click)="createOrReplace(v_part)" class="btn btn-primary">ثبت</button> 
+                  <button type="submit" 
+                          style="display:inline" 
+                          (click)="createOrReplace(v_part)" 
+                          class="btn btn-primary">ثبت</button> 
            <!-- &nbsp;  <button type="button" (click)="create(v_part)" class="btn btn-success">ایجاد</button> -->
-           &nbsp; <button type="button" (click)="delete(v_part )" class="btn btn-danger">حذف</button>
+           &nbsp; <button type="button" *ngIf="op_edit" (click)="delete(v_part )" class="btn btn-danger">حذف</button>
+           &nbsp; <button type="button" (click)="gotoList()" class="btn btn-info">برگشت</button>
           </div>  
 
         </div>

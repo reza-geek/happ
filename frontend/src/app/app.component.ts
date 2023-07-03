@@ -1,6 +1,5 @@
 import { HttpClient ,HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
-
+import { Component } from '@angular/core'; 
 
 interface Model {
     name:string;
@@ -29,21 +28,9 @@ export class AppComponent {
   //     "Access-Control-Allow-Origin": "*"
   //   }), responseType: 'text' as 'json'
   // };
-  models : Model[] = [];
- // part!: Part[] ;
 
   ngOnInit(){  
-    
-    // this.http
-    // .get<Model[]>("/api/home/GetPartCount")
-    // .subscribe((x)=>{
-    //   this.models = x;
-    // }) ;
-
-    // this.http
-    // .get<Part[]>("/api/home/GetPart")
-    // .subscribe(    x => {  this.part = x ; }   )
-    
+       
 
   }
 }

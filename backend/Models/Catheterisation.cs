@@ -14,11 +14,15 @@
        // public int Dr_ID { get; set; }
         public Nullable<bool> Has_Event { get; set; }
         //public Nullable<int> Event_ID { get; set; }
-        public string Event_Desc { get; set; }
+        public string? Event_Desc { get; set; }
         public string Catheterisation_Date { get; set; }
-        public Nullable<int> User_ID { get; set; }
-       // public Nullable<int> Catheter_ID { get; set; }
-        public string Catheterisation_EjectDate { get; set; }
+        //public Nullable<int> User_ID { get; set; }
+        // public int User_ID { get; set; }
+        // public User User { get; set; }
+        //public int Catheter_ID { get; set; }
+        [Column("Catheter_ID")]
+        public Catheter? Catheter { get; set; }
+        public string ? Catheterisation_EjectDate { get; set; }
        // public Nullable<int> CatheterEject_ID { get; set; }
         public Nullable<System.DateTime> Catheterisation_DateEn { get; set; }
         public Nullable<System.DateTime> Catheterisation_EjectDateEn { get; set; }

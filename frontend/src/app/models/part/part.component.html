@@ -1,5 +1,7 @@
+
+      
 <div class="card-footer clearfix">
-  <a class="btn btn-info float-right" [routerLink]="['/part-detail']" > 
+  <a class="btn btn-info float-right" [routerLink]="['./../part-detail/']" > 
     جدید
     <i class="fa fa-plus"></i>
     </a>
@@ -26,14 +28,24 @@
       <td>{{ item?.Comment }}</td>
       <td> 
           
-          <a class="btn btn-primary" [routerLink]="['/part-detail/', item.Part_ID]" > 
+          <a class="btn btn-primary" [routerLink]="['./../part-detail/', item.Part_ID]" > 
            <i class="fa fa-edit"></i>
            </a>
              &nbsp; 
-                  
+           
+             <!-- <p-button class="btn btn-danger bt-sm" (click)="delete(item.Part_ID)" 
+            
+             >
+             <i class="fa fa-trash-o"></i>
+            </p-button> -->
+             
             <button class="btn btn-danger bt-sm" (click)="delete(item.Part_ID)">
               <i class="fa fa-trash-o"></i>
             </button>
+
+           <!-- <button class="btn btn-danger bt-sm" (click)="GetConfirm()">
+              <i class="fa fa-trash-o"></i>
+            </button> -->
           <!-- <button class="btn btn-primary bt-sm" click="selectPart(part.Part_ID)"> Details</button> -->       
        
       </td>  
@@ -41,7 +53,11 @@
     </tr>
   </tbody>
 </table> 
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" acceptLabel="بله" rejectLabel="خیر"
+header="اخطار" appendTo="body" key="userCrudConfirmation"></p-confirmDialog>
 
+       
+       
 <!-- <h1>{{ v_part.part_ID  }}</h1>
 {{ v_part.part_Name }}
 <h2>{{ v_part.comment }}</h2> -->

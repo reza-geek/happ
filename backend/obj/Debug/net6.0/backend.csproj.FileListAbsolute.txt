@@ -331,3 +331,8 @@ D:\Work\happ\happ\backend\obj\Debug\net6.0\ref\backend.dll
 D:\Work\happ\happ\backend\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\Work\happ\happ\backend\bin\Debug\net6.0\AutoMapper.dll
 D:\Work\happ\happ\backend\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Work\happ\happ\backend\obj\Debug\net6.0\backend.MvcApplicationPartsAssemblyInfo.cs
+D:\Work\happ\happ\backend\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Work\happ\happ\backend\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Work\happ\happ\backend\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Work\happ\happ\backend\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll

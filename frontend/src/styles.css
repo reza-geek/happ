@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import "assets/AdminTemplate/dist/css/adminlte.min.css";
 @import "assets/AdminTemplate/plugins/font-awesome/css/font-awesome.min.css";
 @import "assets/AdminTemplate/plugins/iCheck/flat/blue.css";
@@ -13,6 +14,10 @@
 @import "assets/AdminTemplate/dist/css/custom-style.css";
 @import url( "http://cdn.kendostatic.com/2013.2.918/styles/kendo.common.min.css");
 @import url("http://cdn.kendostatic.com/2013.2.918/styles/kendo.default.min.css");
+@import '~ngx-toastr/toastr.css';
+@import "primeng/resources/primeng.css";  
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+
 
 body .ui-widget {
     font-family: "vazir" !important;

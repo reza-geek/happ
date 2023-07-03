@@ -23,16 +23,14 @@ import { UserComponent } from '../models/user/user.component';
 import { CatheterEventComponent } from '../models/catheter-event/catheter-event.component';
 import { PatientDetailComponent } from '../models/patient/patient_detail/patient-detail.component';
 import { PaginationComponent } from '../models/Pagination/pagination.component';
-//import { MaterialPersianDateAdapter } from '../material.persian-date.adapter/material.persian-date.adapter.component';
-//import { PartDetailComponent } from '../models/part/part-detail/part-detail.component';
 import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
  const routes: Routes =
- [
-    
+ [    
     {
         path: "",component: HomeComponent,
+        //path: "",component: PartComponent,
      // canActivate: [RouteCheckerGuard],
     children: [
     //   {
@@ -47,6 +45,7 @@ import { BrowserModule } from '@angular/platform-browser';
       { path: 'patient-detail', component: PatientDetailComponent }   ,
       { path: 'patient-detail/:id', component: PatientDetailComponent }   ,
       { path: 'GetPatientByID/:id', component: PatientComponent },
+      { path: 'test', component: TestComponent } ,
     ],
     },
     {

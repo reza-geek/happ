@@ -18,14 +18,17 @@ using Microsoft.AspNetCore.Authorization;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace backend.Controllers
 {
-    [Route("/api/[controller]")]
-   // [Authorize]
+    [Route("/api/[controller]")]    
     public class UserController : Controller
     {
-        private Hospital_DBN2 _context;
+        private readonly IConfiguration _configuration;
+        private Hospital_DBN _context;
         private readonly ILogger<UserController> _logger;
 
         private readonly UserManager<User> _userManager;
@@ -33,28 +36,26 @@ namespace backend.Controllers
         private readonly JwtHandler _jwtHandler;
 
 
-        //public UserController(ILogger<PatientController> logger, Hospital_DBN2 context )
+        //public UserController(ILogger<PatientController> logger, Hospital_DBN context)
         //{
         //    _context = context;
-        //    _logger = logger;            
+        //    _logger = logger;
         //}
 
-        public UserController(ILogger<UserController> logger, Hospital_DBN2 context,
-           UserManager<User> userManager,
-           IMapper mapper,
+        public UserController(ILogger<UserController> logger, Hospital_DBN context,IConfiguration configuration,
+          // UserManager<User> userManager,
+          // IMapper mapper,
            JwtHandler jwtHandler)
         {
+            _configuration = configuration;
             _context = context;
             _logger = logger;
 
-            _userManager = userManager;
-            _mapper = mapper;
+          //  _userManager = userManager;
+         //   _mapper = mapper;
             _jwtHandler = jwtHandler;
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
+        
 
         [HttpGet("GetUser")]
         public User GetPatientByID(int id)
@@ -67,24 +68,47 @@ namespace backend.Controllers
         {
             try
             {
-                    if (i_user != null)
+                if (i_user != null)
                 {
                     if (string.IsNullOrWhiteSpace(i_user.Username) || string.IsNullOrWhiteSpace(i_user.Password))
                         //return new HttpUnauthorizedResult("Please enter username and password");
                         return BadRequest(ModelState);
-
-                    var user = _context.User_tbl.FirstOrDefault(x => x.Username == i_user.Username.Trim() && x.Password == i_user.Password && x.Is_Active == true);
+                   
+                    //----------------------------
+                    var hashpass = Helper.GetSha256FromString(i_user.Password);
+                    var user = _context.User_tbl.FirstOrDefault(x => x.Username == i_user.Username.Trim() && x.Password == hashpass && x.Is_Active == true);
                     if( user ==null) 
                     {
                         return Unauthorized(new AuthResponseDto { ErrorMessage = "Invalid Authentication" });
                     }
+                    UpdateLoginDate(user.User_ID);
+                    var claims = new List<Claim>
+                    {                        
+                        new Claim("Username",i_user.Username),
+                        new Claim("UserId",Guid.NewGuid().ToString()),
+                    };
+                    var key = _configuration["JWtConfig:key"];
+                    var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
+                    var credentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+                    var token = new JwtSecurityToken(
+                        issuer: _configuration["JWtConfig:issuer"],
+                        audience: _configuration["JWtConfig:audience"],
+                        expires: DateTime.Now.AddMinutes(20),
+                        notBefore: DateTime.Now,
+                        claims: claims,
+                        signingCredentials: credentials
+                        );
+                    var tokenHandler = new JwtSecurityTokenHandler().WriteToken(token);
+                    return Ok(new AuthResponseDto { IsAuthSuccessful = true, Token = tokenHandler, UserFullName = user.Name + " " + user.Family });
+
+                    /*
                     var signingCredentials = _jwtHandler.GetSigningCredentials();
                     var claims = _jwtHandler.GetClaims(new IdentityUser { UserName = user.Username });
                     var tokenOptions = _jwtHandler.GenerateTokenOptions(signingCredentials, claims);
-                    var token = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
-
-                    return Ok(new AuthResponseDto { IsAuthSuccessful = true, Token = token });
-
+                    var token1 = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+               
+                    return Ok(new AuthResponseDto { IsAuthSuccessful = true, Token = token ,UserFullName = user.Name + " " + user.Family });
+                    */
                     //    query = query.Where(p => p.Username.ToLower().Contains(username.ToLower()) &&
                     //                     p.Password.ToLower().Contains(password.ToLower()));
 
@@ -102,22 +126,31 @@ namespace backend.Controllers
                 return Json(new { error = Helper.getErrorMessage(ex) });
             }
         }
-
-        [HttpPost("Login2")]
-        public async Task<IActionResult> Login2([FromBody] User userForAuthentication)
+        [HttpPut ]
+        public ActionResult UpdateLoginDate(int id)
         {
-            var user = await _userManager.FindByNameAsync(userForAuthentication.Username);
-
-            if (user == null || !await _userManager.CheckPasswordAsync(user, userForAuthentication.Password))
-                return Unauthorized(new AuthResponseDto { ErrorMessage = "Invalid Authentication" });
-
-            var signingCredentials = _jwtHandler.GetSigningCredentials();
-            var claims = _jwtHandler.GetClaims(new IdentityUser { UserName = user.Username });
-            var tokenOptions = _jwtHandler.GenerateTokenOptions(signingCredentials, claims);
-            var token = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
-
-            return Ok(new AuthResponseDto { IsAuthSuccessful = true, Token = token });
+            var _user = _context.User_tbl.Find(id);
+            _user.LastLoginDate = Helper.ConvertToPersianDate(DateTime.Now);
+            _context.SaveChanges();
+            return Ok();
         }
+        //[HttpPost("Login2")]
+        //public async Task<IActionResult> Login2([FromBody] User userForAuthentication)
+        //{
+        //    var user = await _userManager.FindByNameAsync(userForAuthentication.Username);
+
+        //    if (user == null || !await _userManager.CheckPasswordAsync(user, userForAuthentication.Password))
+        //        return Unauthorized(new AuthResponseDto { ErrorMessage = "Invalid Authentication" });
+
+        //    var signingCredentials = _jwtHandler.GetSigningCredentials();
+        //    var claims = _jwtHandler.GetClaims(new IdentityUser { UserName = user.Username });
+        //    var tokenOptions = _jwtHandler.GenerateTokenOptions(signingCredentials, claims);
+        //    var token = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+
+        //    return Ok(new AuthResponseDto { IsAuthSuccessful = true, Token = token });
+        //}
+
+
         // GET:  
         //[HttpPost("Login1")]
         //Route("app/Home/Login")]
@@ -250,5 +283,6 @@ namespace backend.Controllers
         public bool IsAuthSuccessful { get; set; }
         public string? ErrorMessage { get; set; }
         public string? Token { get; set; }
+        public string? UserFullName { get; set; }
     }
 }

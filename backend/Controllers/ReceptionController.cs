@@ -9,22 +9,22 @@ namespace backend.Controllers;
 [Route("/api/[controller]")]
 public class ReceptionController : Controller
 {
-    private Hospital_DBN2 _context;
+    private Hospital_DBN _context;
     private readonly ILogger<ReceptionController> _logger;
 
-    public ReceptionController(ILogger<ReceptionController> logger, Hospital_DBN2 ctx)
+    public ReceptionController(ILogger<ReceptionController> logger, Hospital_DBN ctx)
     {
         _context = ctx;
         _logger = logger;
     }
 
-    [HttpGet("GetReception")]
-    public IEnumerable<Reception> GetReception()
-    {
-        IQueryable<Reception> qry=  _context.Reception;
-        qry= qry.Include(p  =>p.Part).Include(p => p.Patient );
-         return qry.ToList();
-    }
+    //[HttpGet("GetReception")]
+    //public IEnumerable<Reception> GetReception()
+    //{
+    //    IQueryable<Reception> qry=  _context.Reception;
+    //    qry= qry.Include(p  =>p.Part).Include(p => p.Patient).Include(p => p.User);
+    //    return qry.Select(r => new { r.Part.Part_Name, r.Patient.FName,r.Patient.LName}).ToList();
+    //}
 /*
     [HttpGet("GetReceptionById/{id?}")]
     public IEnumerable<Reception> GetReceptionById(int id)

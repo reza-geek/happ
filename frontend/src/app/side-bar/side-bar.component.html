@@ -16,7 +16,7 @@
             <img src="https://www.gravatar.com/avatar/52f0fbcbedee04a121cba8dad1174462?s=200&d=mm&r=g" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">حسام موسوی</a>
+            <a href="" class="d-block"> {{ userTitle }}</a>
           </div>
         </div>
 
@@ -86,7 +86,7 @@
             </li>
             <!-- @*پزشک*@ -->
             <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
+              <a href="" class="nav-link">
                 <i class="nav-icon fa fa-user-md text-primary "></i>
                 <p>
                   پزشک
@@ -128,7 +128,7 @@
             </li>
             <!-- تعبیه-->
             <li class="nav-item">
-              <a [routerLink]="['/catheterisation']" class="nav-link">
+              <a [routerLink]="['./catheterisation']" class="nav-link">
                 <i class="nav-icon fa fa-medkit text-danger"></i>
                 <p>
                  تعبیه                  
@@ -138,7 +138,7 @@
             <!-- اطلاعات پایه-->
 
             <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
+              <a href="" class="nav-link">
                 <i class="nav-icon fa fa-hospital-o"></i>
                 <p>
                   اطلاعات پایه
@@ -147,7 +147,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a [routerLink]="['/part']" class="nav-link">
+                  <a [routerLink]="['./part']" class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
                     <p>بخش</p>
                   </a>
@@ -182,30 +182,12 @@
             
             <li class="nav-header">متفاوت</li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="" class="nav-link">
                 <i class="nav-icon fa fa-file"></i>
                 <p>تنظیمات</p>
               </a>
             </li>
-            <li class="nav-header">برچسب‌ها</li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-circle-o text-danger"></i>
-                <p class="text">مهم</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-circle-o text-warning"></i>
-                <p>هشدار</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-circle-o text-info"></i>
-                <p>اطلاعات</p>
-              </a>
-            </li>
+            
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

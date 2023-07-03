@@ -8,27 +8,34 @@ import { IActiveDate } from 'ng-persian-datepicker';
 import moment from 'jalali-moment';
 import { FormControl } from '@angular/forms';
 import { IDatepickerTheme    } from 'ng-persian-datepicker';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-patient-detail',
   templateUrl: './patient-detail.component.html',
   styleUrls: ['./patient-detail.component.css']
 })
 export class PatientDetailComponent implements OnInit {
-  
 
   dateValue = new FormControl();
-  constructor(private http: HttpClient,private actRoute: ActivatedRoute,private router:Router,
-    private location:Location) { }
+  constructor(
+    private http: HttpClient,
+    private actRoute: ActivatedRoute,
+    private router:Router,
+    private location:Location
+    ,private toaster: ToastrService
+    ) { }
     
   op_edit : Boolean =false;
   v_patient !:Patient;
+  gender = ["زن"  ,"مرد"];
   
   onSelect(event: IActiveDate): void {
     const viaTimestampValue = new Date(event.timestamp);
     const viaGregorianDate = new Date(event.gregorian);
   }
   ngOnInit(): void {
-    debugger
+    // debugger
     this.actRoute.paramMap.subscribe(
       (param) => {
         //اینو اول باید داشته باشی بعد یا پرکنی یا خالی بمونه برای جدید 
@@ -54,10 +61,13 @@ export class PatientDetailComponent implements OnInit {
   }
 
   gotoList():void  { 
-    this.router.navigate(["../../patient"])
+    this.router.navigate(['./admin/patient'])
    //this.location.back();
   }
-
+ShowMsg():void  { 
+  this.toaster.error("خطایی رخ داد. لطفا مجدد امتحان کنید");
+   //this.location.back();
+  }
   createOrReplace(patient: Patient) {
     debugger
     if(this.op_edit)
@@ -67,8 +77,7 @@ export class PatientDetailComponent implements OnInit {
     else
     {
       this.create(patient);
-    }    
-     
+    }         
   }
 
   create(patient:Patient) {

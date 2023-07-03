@@ -8,10 +8,6 @@
     [Table("Event")]
     public class Event
     {
-        public Event()
-        {
-        }
-
         [Key]
         public int Event_ID { get; set; }
         [Required(ErrorMessage = "Required")]

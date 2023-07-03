@@ -26,7 +26,7 @@
         [ForeignKey("User")]
         public int  User_ID { get; set; }
         public User ? User { get; set; }
-
+        
         //public ICollection<Reception> Reception { get; set; }
     }
 }

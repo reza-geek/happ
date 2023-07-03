@@ -8,10 +8,6 @@
     [Table("user_tbl")]
     public class User
     {
-        public User()
-        {
-        }
-
         [Key]
         public int User_ID { get; set; }
         [Required(ErrorMessage = "Required!")]

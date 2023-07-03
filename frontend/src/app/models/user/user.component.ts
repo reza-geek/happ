@@ -29,25 +29,24 @@ export class UserComponent implements OnInit {
   }
 
   Login(o_user : User) {  
-    debugger
+    
     this.http.post<AuthResponseDto>('/api/User/Login', o_user).subscribe(     
       p => {
-            this.authResponseDto = p;  
-        // if ( this.o_user.Name != undefined ) {
-        //   localStorage.setItem("User", this.o_user.Name );
-        //   this.router.navigate(["./Home"]);
-        //   alert('login success');
-        // }
-        if ( this.authResponseDto != undefined && this.authResponseDto.Token != undefined &&
-          this.authResponseDto.IsAuthSuccessful == true) {
-          localStorage.setItem("User", this.authResponseDto.Token );          
-          alert('login success');
-          this.router.navigate(["./admin"]);
-        }
-        else
-        {  
-          alert(this.authResponseDto.ErrorMessage); 
-        }
+            this.authResponseDto = p;             
+       
+            if ( this.authResponseDto != undefined &&
+              this.authResponseDto.Token != undefined &&
+              this.authResponseDto.UserFullName != undefined &&
+              this.authResponseDto.IsAuthSuccessful == true)
+            {
+              localStorage.setItem('User', this.authResponseDto.Token );          
+              localStorage.setItem('UserFullName' ,this.authResponseDto.UserFullName );
+              this.router.navigate(["/admin"]);
+            }
+            else
+            {  
+              alert(this.authResponseDto.ErrorMessage); 
+            }
        },
       //  (error: HttpErrorResponse)=>{
       //   this.errorHandler.handleError(error);
@@ -67,22 +66,8 @@ export class UserComponent implements OnInit {
         }
       }
       );
-        
-     // (error:Exception)=>{console.log(error.message);   }
-        
-       
-  }
-  // login2(username :string, password:string): Observable<any> {
-  //   return this.httpClient.post<any>('/api/User/GetUerInfo?',
-  //     {
-  //       username,
-  //       password,
-  //       loadWithPermissions: true,
-        
-  //     }
-  //   );
-  //   }
-  
+                    
+  }  
 }
 
 class AuthResponseDto
@@ -90,4 +75,5 @@ class AuthResponseDto
       IsAuthSuccessful ?: boolean ;
       ErrorMessage ?:  string  ;
       Token  ?: string ;
+      UserFullName ? : string ;
     }

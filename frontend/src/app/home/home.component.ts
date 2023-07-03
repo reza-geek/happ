@@ -1,7 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import moment from 'jalali-moment';
 import { FormControl } from '@angular/forms';
-
+import { SideBarComponent } from '../side-bar/side-bar.component';
+import { Observable, BehaviorSubject , throwError } from "rxjs";
+import { UserComponent } from '../models/user/user.component';
+import { HttpClient ,HttpErrorResponse} from '@angular/common/http';
+import { catchError, retry } from 'rxjs/operators';
+import { AppModule } from 'src/app/app.module';
+import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router  } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AdminDashboardService } from '../Services/admin-dashboard.service';
 import {
   defaultTheme,
   IActiveDate,
@@ -11,48 +20,51 @@ import { darkTheme } from './datepicker-theme/dark.theme';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
-})
+  templateUrl: './home.component.html'
+ })
 export class HomeComponent implements OnInit {
-
-  dateValue = new FormControl();
-  uiIsVisible: boolean = false;
-  uiTheme:  IDatepickerTheme = darkTheme;
-  uiYearView: boolean = true;
-  uiMonthView: boolean = true;
-  uiHideAfterSelectDate: boolean = true;
-  uiHideOnOutsideClick: boolean = true;
-  uiTodayBtnEnable: boolean = true;
-  timeEnable: boolean = false;
-  timeShowSecond: boolean = false;
-  timeMeridian: boolean = false;
-
-  private _theme: string = 'dark';
-
-  get theme(): string {
-    return this._theme;
+  
+  constructor(
+    private actRoute: ActivatedRoute,
+    private router1:Router,
+    private http: HttpClient,
+    private router: RouterModule,
+    private dashboardServices: AdminDashboardService,
+    private toaster: ToastrService) 
+  { 
+    this.router1.navigate(["/admin"]);
+   // this.userco.fullName.subscribe((x) => { this.userTitle = x;  });
   }
-  set theme(value: string) {
-    this._theme = value;
-
-    switch (value) {
-      case 'dark':
-        this.uiTheme = darkTheme;
-        break;
-      case 'default':
-        this.uiTheme = defaultTheme;
-        break;
-    }
+  
+  mostSearchData: any;
+  mostSearchVisible = true;   
+  
+  GetPartCount(size: number) {
+    this.dashboardServices.GetPartCount(5).subscribe(
+      (v) => { this.mostSearchData = 
+      {
+        labels: v.map( m => m.Key)  ,
+        dataset: [{
+          label: "Search count",
+          backgroundColor: [
+            "#42A5F5",
+            "#28A745",
+            "#FFC107",
+            "#DC3545",
+            "#565656",
+          ],
+          borderColor: "#1E88E5",
+          data: v.map((m) => m.DocCount),
+        },]
+      }  ;
+   },
+   (err: HttpErrorResponse) => {
+    if (err.status == 401) this.mostSearchVisible = false;
+  }
+   );    
   }
 
-  onSelect(date: IActiveDate) {
-    console.log(date);
-  }
-
-  tval=true;
-  constructor() {   }
-
+  
   ngOnInit(): void {
   }
 

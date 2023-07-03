@@ -10,7 +10,16 @@ Mobile  ? : string ;
 Gender  ? : string ;
 Insert_Date  ? : string ;
 User_ID ? : number ; -->
-<button type="button" (click)=" GetPatientByName('آرسام')"   class="btn btn-success">filter</button>
+
+
+
+<br>
+<div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+  
+  <input id="txtComment" type="text"  name="LName"  [(ngModel)] = "this.myText"
+  required placeholder="جستجو"> &nbsp; 
+  <button  type="button" (click)="GetPatientByName()" class="btn btn-info">جستجو</button>   
+</div>
 <br>
 <table class='table table-sm table-striped' aria-labelledby="tableLabel" >
   <thead>
@@ -18,31 +27,51 @@ User_ID ? : number ; -->
       <th>کد</th>
       <th>نام</th>
       <th>نام خانوادگی</th>
+      <th>تاریخ تولد</th>
       <th>نام کاربر</th>
-      <th>نام خانوادگی کاربر</th>
+      <th>عملیات</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of o_patient">
+    <tr *ngFor="let item of o_patients | paginate: { itemsPerPage: pageSize, currentPage: p }">
+      <!-- <tr *ngFor="let item of o_patients "> -->
       <td>{{ item?.Patient_ID }}</td>
       <td>{{ item?.FName }}</td>
       <td>{{ item?.LName }}</td>
-      <td>{{ item.User?.Family }}</td>
-      <td>{{ item.User?.Name}}</td>
+      <td>{{ item?.Birthdate }}</td>
+      <td>{{ item.User?.Name}} {{ item.User?.Family }}</td>       
+      
       <td>
-         <a class="btn btn-primary" [routerLink]="['../patient-detail/', item.Patient_ID]"
-         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Details
-          <!-- <i class="fa fa-pencil"></i>  -->
-        </a> 
-         <!-- <button class="btn btn-primary bt-sm" click="selectPart(part.Part_ID)"> Details</button> -->
-       
-      </td>
-      <td>
-        <a class="btn btn-primary" [routerLink]="['../patient-detail/', item.Patient_ID]" >Delete
+        <a class="btn btn-primary" [routerLink]="['../patient-detail/', item.Patient_ID]"
+        routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >جزئیات
+         <!-- <i class="fa fa-pencil"></i>  -->
+       </a>
+       ‌
+        <a class="btn btn-danger" [routerLink]="['../patient-detail/', item.Patient_ID]" >حذف
         </a> 
      </td>
     </tr>
     
   </tbody>
 </table> 
-<app-pagination></app-pagination>
+<div class="col-md-12">
+  
+  <pagination-controls
+    previousLabel="Prev"
+    nextLabel="Next"
+    [responsive]="true"
+    (pageChange)="handlePageChange($event)"
+  ></pagination-controls>
+
+  
+</div>
+<div class="mt-3">
+ 
+  Items per Page:
+  <select (change)="handlePageSizeChange($event)">
+    <option *ngFor="let size of pageSizes" [ngValue]="size">
+      {{ size }}
+    </option>
+  </select>
+</div>
+ <app-pagination></app-pagination> 

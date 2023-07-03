@@ -9,6 +9,7 @@
     public class Doctor
     {
         [Key]
+        [Column("DR_ID")]
         public int Dr_ID { get; set; }
         [Required(ErrorMessage = "Required")]
         public string Dr_Name { get; set; }

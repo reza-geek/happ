@@ -7,12 +7,9 @@
     [Table("Part")]
     public class Part
     {
-        //public Part()
-        //{
-        //    this.Reception = new HashSet<Reception>();
-        //}
         [Key]
-        public int Part_ID { get; set; }        
+        public int Part_ID { get; set; }
+        [Required]
         public string Part_Name { get; set; }
         public string Comment { get; set; }
 
