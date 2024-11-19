@@ -20,9 +20,8 @@ builder.Services.AddScoped<PatientRepository>();
 builder.Services.AddScoped<PartRepository>();
 builder.Services.AddScoped<EventRepository>();
 builder.Services.AddScoped<CatheterRepository>();
-builder.Services.AddScoped<CatheterEjectRepository>();
-builder.Services.AddScoped<ClearanceRepository>();
-builder.Services.AddScoped<DoctorRepository>(); 
+builder.Services.AddScoped<DoctorRepository>();
+builder.Services.AddScoped<ReceptionRepository>();
 
 builder.Services.AddSwaggerGen();
 

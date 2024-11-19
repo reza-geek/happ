@@ -14,8 +14,12 @@ import { PartDetailComponent } from '../models/part/part-detail/part-detail.comp
 import { PatientComponent } from '../models/patient/patient.component';
 import { DoctorComponent } from '../models/doctor/doctor.component';
 import { CatheterComponent } from '../models/catheter/catheter.component';
+import { CatheterdetailComponent } from '../models/catheter/catheterdetail/catheterdetail/catheterdetail.component';
+
 import { ClearanceComponent } from '../models/clearance/clearance.component';
 import { EventComponent } from '../models/event/event.component';
+import { EventDetailComponent } from '../models/event/EventDetail/event-detail/event-detail.component';
+
 import { ReceptionComponent } from '../models/reception/reception.component';
 import { CatheterisationComponent } from '../models/catheterisation/catheterisation.component';
 import { CatheterEjectComponent } from '../models/catheter-eject/catheter-eject.component';
@@ -46,6 +50,12 @@ import { BrowserModule } from '@angular/platform-browser';
       { path: 'patient-detail/:id', component: PatientDetailComponent }   ,
       { path: 'GetPatientByID/:id', component: PatientComponent },
       { path: 'test', component: TestComponent } ,
+      { path: 'event', component: EventComponent } ,
+      { path: 'eventdetail/:id', component: EventDetailComponent } ,
+      { path: 'catheter', component: CatheterComponent  } ,
+      { path: 'catheterdetail', component: CatheterdetailComponent  } ,
+      { path: 'catheterdetail/:id', component: CatheterdetailComponent  } ,
+      { path: 'clearance', component: ClearanceComponent  } ,
     ],
     },
     {

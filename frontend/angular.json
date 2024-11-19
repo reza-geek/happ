@@ -6,7 +6,7 @@
     "frontend": {
       "projectType": "application",
       "schematics": {},
-      "root": "",
+      "root": "./src",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
@@ -23,16 +23,14 @@
               "src/assets"
             ],
             "styles": [
-               "node_modules/ngx-toastr/toastr.css",
+              "node_modules/ngx-toastr/toastr.css",
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",             
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css"
-              
-             
             ],
-            "scripts": [              
+            "scripts": [
               "./src/assets/AdminTemplate/plugins/jquery/jquery.min.js",
               "./src/assets/AdminTemplate/dist/js/jquery-ui.min.js",
               "./src/assets/AdminTemplate/plugins/bootstrap/js/bootstrap.bundle.min.js",
@@ -60,7 +58,7 @@
               "./src/assets/AdminTemplate/dist/js/adminlte.min.js",
               "./src/assets/AdminTemplate/dist/js/demo.js",
               "./src/assets/AdminTemplate/dist/js/kendo.all.min.js",
-              "./src/assets/AdminTemplate/dist/js/jquery-1.9.1.min.js",              
+              "./src/assets/AdminTemplate/dist/js/jquery-1.9.1.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },

@@ -1,0 +1,49 @@
+<p>catheterdetail works!</p>
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">اطلاعات کاتتر</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form [formGroup]="form"  (ngSubmit)="onSubmit()" role="form" class="form-horizontal">
+        <div  class="card-body">
+                               
+          <div class="form-group">
+            <div class="col-sm-4">
+                <label for="txtEventName">نام کاتتر</label>
+                <input  id="catheter_Name" 
+                type="text"  
+                [ngClass]="{ 'is-invalid': submitted && f['catheter_Name'].errors }"
+                [(ngModel)] = "v_catheter.Catheter_Name"    
+                placeholder="نام کاتتر را وارد کنید"
+
+                formControlName="catheter_Name"
+                class="form-control"
+                 
+                /> 
+                <div *ngIf="submitted && f['catheter_Name'].errors" class="invalid-feedback">
+                    <div *ngIf="f['catheter_Name'].errors['required']">نام کاتتر الزامی می باشد</div>
+                </div>            
+            </div>         
+            
+          </div>
+        
+            <div class="col-sm-4">
+             
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12 mb-1" style="float:right">
+               
+                  <br />
+                  <button type="submit" 
+                          style="display:inline" 
+                          (click)="createOrReplace(v_catheter)" 
+                          class="btn btn-primary">ثبت</button> 
+           <!-- &nbsp;  <button type="button" (click)="create(v_part)" class="btn btn-success">ایجاد</button> -->
+           &nbsp; <button type="button" *ngIf="op_edit" (click)="delete(v_catheter)" class="btn btn-danger">حذف</button>
+           &nbsp; <button type="button" (click)="gotoList()" class="btn btn-info">برگشت</button>
+          </div>  
+
+        </div>
+        <!-- /.card-body -->        
+    </form>
+  </div> 

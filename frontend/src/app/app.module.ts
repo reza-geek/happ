@@ -16,7 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './auth/token.interceptor'; 
 import { AuthService } from './auth/auth.service'; 
-import { HeadersSender } from './auth/headers-sender';
+import { HeadersSender } from './auth/headers-sender'; 
 //import { AuthInterceptor } from '../auth/auth.interceptor';
 
  @NgModule({
@@ -24,7 +24,7 @@ import { HeadersSender } from './auth/headers-sender';
     AppComponent,  
    // HomeComponent,
     UserComponent, 
-    UnauthorizedPageComponent ,      
+    UnauthorizedPageComponent, 
   ],
   imports: [
     FormsModule, 

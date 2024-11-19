@@ -17,13 +17,13 @@ namespace backend.Controllers
         {
             this.patientRepository = patientRepository;
         }
-        [HttpGet]
+        [HttpGet()]
         public IActionResult Get()
         {
             var patient = patientRepository.GetAll().ToList();
             return Ok(patient);
         }
-
+         
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {

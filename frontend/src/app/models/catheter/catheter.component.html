@@ -1,1 +1,43 @@
-<p>catheter works!</p>
+<div class="card-footer clearfix">
+    <a class="btn btn-info float-right" [routerLink]="['./../catheterdetail']" > 
+      جدید
+      <i class="fa fa-plus"></i>
+      </a>
+    <!-- <button type="button" class="btn btn-info float-right"><i class="fa fa-plus"></i> </button> -->
+  </div>
+  
+  <h3>لیست کاتتر ها</h3>
+  
+  
+  <table class='table table-sm table-striped' aria-labelledby="tableLabel" >
+    <thead>
+      <tr>
+        <th>کد کاتتر</th>
+        <th>نام کاتتر</th>
+        <th>عملیات</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of catheter"> 
+        <td>{{ item.Catheter_ID }}</td>
+        <td>{{ item.Catheter_Name }}</td>
+        <td> 
+            
+            <a class="btn btn-primary" [routerLink]="['./../catheterdetail', item.Catheter_ID]" > 
+             <i class="fa fa-edit"></i>
+             </a>
+               &nbsp;                           
+               
+              <!-- <button class="btn btn-danger bt-sm" (click)="delete(item.Catheter_ID)">
+                <i class="fa fa-trash-o"></i>
+              </button> -->
+              
+        </td>  
+      
+      </tr>
+    </tbody>
+  </table> 
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" acceptLabel="بله" rejectLabel="خیر"
+  header="اخطار" appendTo="body" key="userCrudConfirmation"></p-confirmDialog>
+  

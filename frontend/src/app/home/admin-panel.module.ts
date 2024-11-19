@@ -34,6 +34,8 @@ import { DialogModule } from "primeng/dialog";
 import { ButtonModule } from 'primeng/button';
 import { HeadersSender } from '../auth/headers-sender';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { EventDetailComponent } from '../models/event/EventDetail/event-detail/event-detail.component';
+import { CatheterdetailComponent } from '../models/catheter/catheterdetail/catheterdetail/catheterdetail.component';
 
 
 // import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -53,8 +55,10 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     PatientComponent, 
     DoctorComponent, 
     CatheterComponent, 
+    CatheterdetailComponent,
     ClearanceComponent,
     EventComponent, 
+    EventDetailComponent,
     ReceptionComponent, 
     CatheterisationComponent, 
     CatheterEjectComponent,

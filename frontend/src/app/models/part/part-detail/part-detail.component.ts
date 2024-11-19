@@ -98,8 +98,7 @@ export class PartDetailComponent implements OnInit {
 
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
-  }
-  
+  }  
   onSubmit():boolean {
      
     this.submitted = true;
@@ -110,9 +109,7 @@ export class PartDetailComponent implements OnInit {
 
     console.log(JSON.stringify(this.form.value, null, 2));
     return true;
-  }
-
-  
+  }  
   gotoList() {
     this.router.navigate(['/admin/part']);
   }
@@ -146,7 +143,6 @@ export class PartDetailComponent implements OnInit {
    
   }
   }
-
   create(part: Part) {
     
     this.http.post<Part>('/api/Part', part).subscribe(
@@ -164,7 +160,6 @@ export class PartDetailComponent implements OnInit {
       }
     );
   }
-
   update(part:Part){
     debugger;
     this.http.put('/api/Part', part).subscribe(
@@ -178,7 +173,6 @@ export class PartDetailComponent implements OnInit {
       }
     );
    }
-
    delete (part : Part){
     debugger;
  

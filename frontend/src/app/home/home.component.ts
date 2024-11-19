@@ -32,10 +32,11 @@ export class HomeComponent implements OnInit {
     private dashboardServices: AdminDashboardService,
     private toaster: ToastrService) 
   { 
-    this.router1.navigate(["/admin"]);
+    //this.router1.navigate(["/admin"]);
    // this.userco.fullName.subscribe((x) => { this.userTitle = x;  });
+    
   }
-  
+  v_reload = true;
   mostSearchData: any;
   mostSearchVisible = true;   
   
@@ -66,6 +67,12 @@ export class HomeComponent implements OnInit {
 
   
   ngOnInit(): void {
+    if(this.v_reload)
+      {
+        this.v_reload = false;
+       // location.reload();
+      }
+    
   }
 
 }

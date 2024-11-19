@@ -1,0 +1,52 @@
+
+
+ <!-- ########################################################## -->
+ <div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">اطلاعات عارضه</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form [formGroup]="form"  (ngSubmit)="onSubmit()" role="form" class="form-horizontal">
+        <div  class="card-body">
+                               
+          <div class="form-group">
+            <div class="col-sm-4">
+                <label for="txtEventName">نام عارضه</label>
+                <input  id="event_Name" 
+                type="text"  
+                [ngClass]="{ 'is-invalid': submitted && f['part_Name'].errors }"
+                [(ngModel)] = "v_event.Event_Name"    
+                placeholder="نام عارضه را وارد کنید"
+
+                formControlName="event_Name"
+                class="form-control"
+                 
+                /> 
+                <div *ngIf="submitted && f['event_Name'].errors" class="invalid-feedback">
+                    <div *ngIf="f['event_Name'].errors['required']">event_Name is required</div>
+                </div>            
+            </div>         
+            
+          </div>
+        
+            <div class="col-sm-4">
+             
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12 mb-1" style="float:right">
+               
+                  <br />
+                  <button type="submit" 
+                          style="display:inline" 
+                          (click)="createOrReplace(v_event)" 
+                          class="btn btn-primary">ثبت</button> 
+           <!-- &nbsp;  <button type="button" (click)="create(v_part)" class="btn btn-success">ایجاد</button> -->
+           &nbsp; <button type="button" *ngIf="op_edit" (click)="delete(v_event)" class="btn btn-danger">حذف</button>
+           &nbsp; <button type="button" (click)="gotoList()" class="btn btn-info">برگشت</button>
+          </div>  
+
+        </div>
+        <!-- /.card-body -->        
+    </form>
+  </div> 
+   

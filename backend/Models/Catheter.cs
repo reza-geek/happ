@@ -14,6 +14,6 @@
         [Required(ErrorMessage = "Required!")]
         public string Catheter_Name { get; set; }
 
-        public ICollection<Catheterisation> Catheterisation { get; set; }
+       // public ICollection<Catheterisation> Catheterisation { get; set; }
     }
 }

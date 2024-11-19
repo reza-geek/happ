@@ -1,1 +1,57 @@
 <p>event works!</p>
+
+      
+<div class="card-footer clearfix">
+    <a class="btn btn-info float-right" [routerLink]="['./../event-detail/']" > 
+      جدید
+      <i class="fa fa-plus"></i>
+      </a>
+    <!-- <button type="button" class="btn btn-info float-right"><i class="fa fa-plus"></i> </button> -->
+  </div>
+  
+  <h3>لیست بخش ها</h3>
+  
+  
+  <table class='table table-sm table-striped' aria-labelledby="tableLabel" >
+    <thead>
+      <tr>
+        <th>کد عارضه</th>
+        <th>نام عارضه</th>
+        <th>عملیات</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of event"> 
+        <td>{{ item?.Event_ID }}</td>
+        <td>{{ item?.Event_Name }}</td>
+        <td> 
+            
+            <a class="btn btn-primary" [routerLink]="['./../eventdetail/', item.Event_ID]" > 
+             <i class="fa fa-edit"></i>
+             </a>
+               &nbsp; 
+             
+               <!-- <p-button class="btn btn-danger bt-sm" (click)="delete(item.Part_ID)" 
+              
+               >
+               <i class="fa fa-trash-o"></i>
+              </p-button> -->
+               
+              <button class="btn btn-danger bt-sm" (click)="delete(item.Event_ID)">
+                <i class="fa fa-trash-o"></i>
+              </button>
+  
+             <!-- <button class="btn btn-danger bt-sm" (click)="GetConfirm()">
+                <i class="fa fa-trash-o"></i>
+              </button> -->
+            <!-- <button class="btn btn-primary bt-sm" click="selectPart(event.Part_ID)"> Details</button> -->       
+         
+        </td>  
+      
+      </tr>
+    </tbody>
+  </table> 
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" acceptLabel="بله" rejectLabel="خیر"
+  header="اخطار" appendTo="body" key="userCrudConfirmation"></p-confirmDialog>
+  
